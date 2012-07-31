@@ -1,0 +1,65 @@
+{% ckan_extends "home/index.html" %}
+
+{% block title %}{{ _("Hampshire Hub") }} - {{ super() }}{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{% url_for_static '/css/demo.css' %}" />
+{% endblock %}
+
+{% block home_primary_heading -%}
+{{ _("Welcome To Hampshire Hub") }}
+{%- endblock %}
+
+{% block home_primary_text %}
+  {% trans %}
+     This is the Hampshire Hub demo site.
+  {% endtrans %}
+{% endblock %}
+
+{% block home_image_caption -%}
+ {{ _("Explore the data of Hampshire") }}
+{%- endblock %}
+
+{% block home_image_content %}
+
+<a class="image" href="/dataset">
+    <img src="{% url_for_static('/images/homepage-graphic.jpg') %}" width="420" height="219" />
+  </a>
+
+{% endblock %}
+
+{% block primary_content %}
+  {{ super() }}
+{#
+  <section class="hero-secondary module module-info-overlay">
+    <div class="module-content">
+      <h3 class="module-heading">{{ _('Add a Dataset') }}</h3>
+      <p>
+        {% trans url=h.url_for(controller='package', action='new') %}
+          You can <a href="{{ url }}">add a dataset</a> to get a sense of publisher workflow. This form
+          can be customised to require many additional fields. In this demo only
+          the most basic fields are required.
+        {% endtrans %}
+      </p>
+    </div>
+    <a class="close icon-remove-sign" href="#close"></a>
+  </section>
+#}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{% url_for_static "/javascript/demo.js" %}"></script>
+{% endblock %}
+
+{#
+-- maybe also:
+
+To see our data explorer in action, have a look at the resource pages of any
+datasets in this group: http://demo.ckan.org/en/group/data-explorer
+
+For an example of our map explorer, please click on the ‘Map’ button under
+‘Preview’ of the Malawi Aid Project resource page:
+http://demo .ckan.org/dataset/malawi-aid-projects/resource/b717c20e-2006-4ad4-82d2-59b57ebc1ab0
+#}
